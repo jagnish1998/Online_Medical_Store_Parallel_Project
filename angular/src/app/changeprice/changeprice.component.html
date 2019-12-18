@@ -1,0 +1,15 @@
+<div class="col-md-4 offset-md-4 mt-5">
+    <form #updatemedPrice='ngForm' (ngSubmit)='printPrice(updatemedPrice)'>
+        <div class="form-group">
+            <label for="medPrice">Price : </label>
+            <input type="number" name="medPrice" #medPrice='ngModel' ngModel medPrice class="form-control"
+                placeholder="Enter new Price">
+        </div>
+        <div *ngIf='medPrice.touched && medPrice.invalid'>
+            <p class="alert alert-danger" *ngIf='medPrice.errors'>This Field is Mandatory</p>
+        </div>
+        <button class="btn btn-outline-primary" type="submit">
+            Update Price
+        </button>
+    </form>
+</div>

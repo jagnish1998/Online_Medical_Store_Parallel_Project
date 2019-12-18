@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>MedicineId</th>
+                <th>MedicineName</th>
+                <th>MedicinePrice</th>
+                <th>MedicineCategory</th>
+                <th>Change Price</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let medicine of medicines; index as i'>
+                <td>{{medicine.medId}}</td>
+                <td>{{medicine.medName}}</td>
+                <td>{{medicine.medPrice}}</td>
+                <td>{{medicine.medCategory}}</td>
+                <td>
+                    <button class="btn btn-outline-primary" (click)='changePrice(medicine)'>
+                        Change Price
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger" (click)='delete(medicine.medId)'>
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

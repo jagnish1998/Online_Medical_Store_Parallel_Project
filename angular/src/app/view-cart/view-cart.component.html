@@ -1,0 +1,41 @@
+<div class="container mt-5"   *ngIf = "carts">
+    <table class="table table-bordered table-hover" >
+        <thead class="thead-dark">
+            <tr>
+                <th>Sno.</th>
+                <th>MedicineName</th>
+                <th>MedicinePrice</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let cart of carts; index as i'>
+                <td>{{i+1}}</td>
+                <td>{{cart.medName}}</td>
+                <td>{{cart.price}}</td>
+                <td>
+                    <button class="btn btn-outline-dark" (click)='delete(cart.cartId)'>
+                        Remove
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-bordered table-hover" >
+        <thead class="thead-dark">
+            <tr class = "text-center">
+               <td><b>Total Bill</b></td>
+                <td><b>{{totalPrice}}</b></td>
+                <td>
+                    <button class="btn btn-outline-dark" (click)='placeOrder(totalPrice)'>
+                        Place Order
+                    </button>
+                </td>
+            </tr>
+        </thead>
+    </table>
+</div>
+<div class="container mt-5 col-md-6 offset-md-4"   *ngIf = "!carts">
+    <h2 class = "text-danger">No Item Present in Your cart</h2>
+</div>

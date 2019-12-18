@@ -1,0 +1,27 @@
+ <div class="container mt-5">
+        <div class="alert alert-danger" *ngIf='message'>{{message}}</div>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>UserId</th>
+                <th>UserName</th>
+                <th>UserEmail</th>
+                <th>Type</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let user of users'>
+                <td>{{user.userId}}</td>
+                <td>{{user.userName}}</td>
+                <td>{{user.userEmail}}</td>
+                <td>{{user.userType}}</td>
+                <td>
+                    <button class="btn btn-outline-dark" (click)='deleteUser(user.userId)'>
+                        Delete
+                    </button>
+                </td>               
+            </tr>
+        </tbody>
+    </table>
+</div>

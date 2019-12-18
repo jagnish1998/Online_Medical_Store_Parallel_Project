@@ -1,0 +1,28 @@
+<div class="container mt-5">
+
+    <div class="alert alert-success" *ngIf='message'>{{message}}</div>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>MedicineId</th>
+                    <th>MedicineName</th>
+                    <th>MedicinePrice</th>
+                    <th>MedicineCategory</th>
+                    <th>Add TO Cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let medicine of medicines; index as i'>
+                    <td>{{i+1}}</td>
+                    <td>{{medicine.medName}}</td>
+                    <td>{{medicine.medPrice}}</td>
+                    <td>{{medicine.medCategory}}</td>
+                    <td>
+                        <button class="btn btn-outline-primary" (click)='addToCart(medicine)'>
+                            Add To Cart
+                        </button>
+                    </td>               
+                </tr>
+            </tbody>
+        </table>
+    </div>

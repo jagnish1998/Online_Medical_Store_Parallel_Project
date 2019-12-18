@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/">MedicalShop</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item ">
+                <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item " *ngIf="isAdminLogin() || isUserLogin()">
+                <a class="nav-link" routerLink="/changePassword">Change Password</a>
+            </li>
+            <li class="nav-item " *ngIf="isUserLogin()">
+                <a class="nav-link" routerLink="/viewCart">View Cart</a>
+            </li>
+            <li class="nav-item dropdown" *ngIf="isAdminLogin()">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Medicine</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                    <a class="dropdown-item" routerLink="/adminmedicine">View Medicine</a>
+                    <a class="dropdown-item" routerLink="/addmed">Add Medicine</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown" *ngIf="isAdminLogin()">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">User</a>
+                <div class="dropdown-menu" aria-labelledby="dropdownId">
+                    <a class="dropdown-item" routerLink="/viewuser">View User</a>
+                    <a class="dropdown-item" routerLink="/addadmin">Add Admin</a>
+                </div>
+            </li>
+
+            <li class="nav-item" *ngIf="isUserLogin()">
+                <a class="nav-link" routerLink="/usermedicine">View Medicine</a>
+            </li>
+            <li class="nav-item" *ngIf="isUserLogin()">
+                <a class="nav-link" routerLink="/viewhistory">view History</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav float-right">
+            <li class="nav-item " *ngIf="isLogin()">
+                <h4 class="text-light">{{userName}}</h4>
+            </li>
+            <li class="nav-item " *ngIf="isAdminLogin() || isUserLogin()">
+                <button type="submit" class="btn btn-outline-primary float-right" (click)='logout()'>Logout</button>
+            </li>
+            <li class="nav-item " *ngIf="!(isAdminLogin() || isUserLogin())">
+                <a class="nav-link" routerLink="/login">Login<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" *ngIf="!(isAdminLogin() || isUserLogin())">
+                <a class="nav-link" routerLink="/userregister">Register</a>
+            </li>
+        </ul>
+    </div>
+</nav>
